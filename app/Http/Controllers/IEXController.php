@@ -16,18 +16,21 @@ class IEXController extends Controller
      */
     public function list(Request $request)
     {
-        $symbols = IEX::Symbol()->take(10);
+        $symbols = IEX::Symbol();
 
         if (!empty($request->get('symbol'))) {
-           $symbols->where('symbol', $request->get('symbol'));
+           $symbol = $request->get('symbol');
+           $symbols->filter(function ($value, $key) use ($symbol) {
+               return str_contains($value->symbol, $symbol);
+           });
         }
 
         if (!empty($request->get('name'))) {
-            $symbols->where('name', $request->get('name'));
+            $symbols->filterName($request->get('name'));
         }
 
         $data = [
-            'symbols' => $symbols->get()
+            'symbols' => $symbols->take(10)->get()
         ];
 
         debug($data);

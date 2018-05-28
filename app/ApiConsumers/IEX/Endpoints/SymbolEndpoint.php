@@ -23,7 +23,7 @@ class SymbolEndpoint extends Endpoint
     /**
      * @var int
      */
-    protected $cacheDurationInMinutes = 1;
+    protected $cacheDurationInMinutes = 10;
 
     /**
      * @return \Illuminate\Support\Collection|\Tightenco\Collect\Support\Collection
