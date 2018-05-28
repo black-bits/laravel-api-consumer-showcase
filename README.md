@@ -34,6 +34,16 @@ php artisan key:generate
  - All the API related code is located in the [app/ApiConsumers](app/ApiConsumers) directory
  - The [SymbolEndpoint](app/ApiConsumers/IEX/Endpoints/SymbolEndpoint.php) has caching enabled (10 min)
  
+ ## Commands
+ 
+ The Following commands are used to create new Consumers, Endpoints and CollectionCallbacks
+ 
+ ```bash
+php artisan make:api-consumer MyAPI
+php artisan make:api-consumer-endpoint UserEndpoint -c MyAPI
+php artisan make:api-consumer-collection-callback ReceivesNewsletter
+ ```
+ 
   
  ## Feedback
  
