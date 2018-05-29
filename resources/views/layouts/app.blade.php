@@ -21,14 +21,14 @@
     @include('partials.navigation-top')
 
     <main class="py-4">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                     @include('partials.navigation-left')
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-10">
 
                     @yield('content')
 

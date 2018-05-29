@@ -2,17 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\ApiConsumers\IEX\IEX;
 use Illuminate\Http\Request;
 
+/**
+ * Class IEXController
+ * @package App\Http\Controllers
+ */
 class IEXController extends Controller
 {
     /**
      * @return \Illuminate\Http\Response
      */
-    public function list()
+    public function list(Request $request)
     {
+        $symbols = IEX::Symbol();
+
+        if (!empty($request->get('symbol'))) {
+           $symbol = $request->get('symbol');
+           $symbols->filter(function ($value, $key) use ($symbol) {
+               return str_contains($value->symbol, $symbol);
+           });
+        }
+
+        if (!empty($request->get('name'))) {
+            $symbols->filterName($request->get('name'));
+        }
+
         $data = [
-            'symbols' => null
+            'symbols' => $symbols->take(10)->get()
         ];
 
         debug($data);
@@ -23,24 +41,13 @@ class IEXController extends Controller
      * @param $apiSymbol
      * @return \Illuminate\Http\Response
      */
-    public function show($apiSymbol)
-    {
-        $data = [
-            'symbol' => null
-        ];
-
-        debug($data);
-        return response()->view('symbols.show', $data);
-    }
-
-    /**
-     * @param $apiSymbol
-     * @return \Illuminate\Http\Response
-     */
     public function showSymbolCompany($apiSymbol)
     {
+        $symbol = IEX::Symbol()->where('symbol', $apiSymbol)->first();
+
         $data = [
-            'company' => null
+            'symbol'  => $symbol,
+            'company' => $symbol->company()->first()
         ];
 
         debug($data);
