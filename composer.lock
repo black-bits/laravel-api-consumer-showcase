@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32d85e2b28452d777fa2ef0a30e8246e",
+    "content-hash": "ac610d3f8a1f4ddf8df1d9e23ddb3f8b",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -130,16 +130,16 @@
         },
         {
             "name": "black-bits/laravel-api-consumer",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/black-bits/laravel-api-consumer.git",
-                "reference": "407033f7218a4e76f3bbee293233ba525f0a32f6"
+                "reference": "85d89d83a16ab23865f57f27f6f0d2a9fab99662"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/black-bits/laravel-api-consumer/zipball/407033f7218a4e76f3bbee293233ba525f0a32f6",
-                "reference": "407033f7218a4e76f3bbee293233ba525f0a32f6",
+                "url": "https://api.github.com/repos/black-bits/laravel-api-consumer/zipball/85d89d83a16ab23865f57f27f6f0d2a9fab99662",
+                "reference": "85d89d83a16ab23865f57f27f6f0d2a9fab99662",
                 "shasum": ""
             },
             "require": {
@@ -196,7 +196,7 @@
                 "laravel",
                 "laravel api consumer"
             ],
-            "time": "2018-05-28T14:38:22+00:00"
+            "time": "2018-05-29T00:37:26+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
